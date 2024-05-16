@@ -1,0 +1,166 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>West sushi</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <script src="https://kit.fontawesome.com/872dff2df9.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="go-top">
+        <a href="#"><i class="fas fa-arrow-up"></i></a>
+    </div>
+
+    <!-- header section start -->
+    <header>
+
+        <nav>
+            <ul>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#menu">Меню</a></li>
+                <li><a href="#contacts">Оставаить отзыв</a></li>
+                <li class="cart"><a href="#cart">Корзина</a></li>
+            </ul>
+        </nav>
+
+        <div class="container">
+            <div class="home-content">
+                <h3>Суши Бар</h3>
+                <h2>West sushi</h2>
+                <h1>Часы работы: 11:00 - 23:00</h1>
+                <h1>Доставка за 1 час</h1>
+                <a href="#menu" class="btn">В меню</a>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- header section end -->
+
+    <!-- about section start -->
+
+    <section class="about" id="about">
+        <div class="img-about">
+            <img src="{% static 'main/img/about-image.jpg' %}">
+        </div>
+
+        <div class="content-about">
+            <h2>О <span>нас</span></h2>
+            <p>Добро пожаловать в West sushi!
+
+                West sushi - это уютное место, где встречаются утонченный вкус и неповторимая атмосфера. Мы гордимся предлагаемым разнообразием блюд японской кухни, приготовленных с любовью и профессионализмом наших шеф-поваров.
+                
+                Наше заведение отличается не только великолепным меню, но и приятной обстановкой. Здесь вы можете насладиться вечером в компании друзей или устроить романтический ужин вдвоем. Мы стремимся к тому, чтобы каждый гость почувствовал себя особенным, получив высочайший уровень сервиса.
+                
+                West sushi - это не просто место, где можно поесть вкусно, это место, где создаются незабываемые впечатления. Мы приглашаем вас окунуться в мир изысканной кухни и приятного общения. Добро пожаловать в нашу семью!
+            </p>
+            <a href="#menu" class="btn">Перейти в меню</a>
+        </div>
+
+    </section>
+
+    <!-- about section end -->
+
+    <!-- menu section start -->
+
+    <section class="menu" id="menu">
+        <h2 class="heading">Наше <span>Меню</span></h2>
+
+        <div class="box-container">
+            <div class="box-item">
+                <div class="top">
+                    <img src="{% static 'main/img/set-family.jpg' %}">
+                    <h4>Сет семейный</h4>
+                </div>
+                <div class="bottom">
+                    <p>2199P</p>
+                    
+                    <a href="#" class="btn">В корзину</a>
+                </div>
+            </div>
+
+            <div class="box-item">
+                <div class="top">
+                    <img src="{% static 'main/img/set-doble.jpg' %}">
+                    <h4>Сет дабл</h4>
+                </div>
+                <div class="bottom">
+                    <p>1599P</p>
+                    <a href="#" class="btn">В корзину</a>
+                </div>
+            </div>
+
+            <div class="box-item">
+                <div class="top">
+                    <img src="{% static 'main/img/set-fire.jpg' %}">
+                    <h4>Сет огонь</h4>
+                </div>
+                <div class="bottom">
+                    <p>1299P</p>
+                    <a href="#" class="btn">В корзину</a>
+                </div>
+            </div>
+
+            <div class="box-item">
+                <div class="top">
+                    <img src="{% static 'main/img/set-sity.jpg' %}">
+                    <h4>Сет город</h4>
+                </div>
+                <div class="bottom">
+                    <p>1999P</p>
+                    <a href="#" class="btn">В корзину</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- menu section end -->
+
+    <!-- testimonial start-->
+
+    <section class="contacts" id="contacts">
+        <h2 class="heading">Написать <span>отзыв</span></h2>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            {% if success %}
+                <div class="alert alert-danger">
+                    <strong>Спасибо за сообщение!</strong>
+                </div>
+            {% endif %}
+            <label for="name">Ваше имя:</label>
+            {{ form.name }}
+            {% if form.email.errors %}
+                <div class="alert alert-danger">
+                    <strong>{{  form.email.errors }}</strong>
+                </div>
+            {% endif %}
+            <label for="email">Email:</label>
+            {{ form.email }}
+            {% if form.message.errors %}
+                <div class="alert alert-danger">
+                    <strong>{{  form.message.errors }}</strong>
+                </div>
+            {% endif %}
+            <label for="msg">Сообщение:</label>
+            {{ form.message }}
+            <input type="submit" value="Отправить">
+        </form>
+    </section>
+
+    <!-- testimonial end-->
+
+    <!-- footer section start-->
+
+    <section class="footer" id="footer">
+        <p>&copy; 2024 website. Данила Зенкович</p>
+    </section>
+
+    <!-- footer section end-->
+
+</body>
+</html>
